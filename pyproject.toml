@@ -1,0 +1,31 @@
+[project]
+name = "leuav"
+version = "0.1.0"
+description = "UAV development framework"
+readme = "README.md"
+authors = [
+    { name = "wangqiyuan", email = "wqy20031003@sjtu.edu.cn" }
+]
+requires-python = ">=3.12"
+dependencies = ["PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+airsim = [
+    "airsim==1.8.1", "numpy>=1.26,<3", "msgpack>=1.1,<2",
+    "msgpack-rpc-python==0.4.1", "tornado==4.5.3",
+    "backports-ssl-match-hostname==3.7.0.1",
+]
+
+[project.scripts]
+leuav = "leuav:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+# Old RPC declares msgpack-python, which writes the same module as modern msgpack.
+[tool.uv]
+exclude-dependencies = ["msgpack-python"]
+
+[tool.uv.extra-build-dependencies]
+airsim = ["numpy", "msgpack>=1.1,<2", "msgpack-rpc-python==0.4.1", "backports-ssl-match-hostname==3.7.0.1"]

@@ -1,0 +1,6 @@
+# 复制到用户配置目录或工作区 resources.local.yaml，再填写实际位置。
+resources:
+  jev_fp8:
+    path: ~/models/jev-fp8
+  ohos_sdk:
+    path: ~/robopi/ohos-sdk/native

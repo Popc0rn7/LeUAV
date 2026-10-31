@@ -1,0 +1,14 @@
+# 复制为 profiles/adrl.local.yaml 后填写本机配置；不是已验收运行配置。
+case: adrl
+# 指向 ADRL 原始完整包根目录，而不是 ELF 或 .sh。
+scene_resource: adrl_package
+# 包含 PX4＋Agent/supervisor 的增量镜像，先按 flight_board README 构建。
+px4_image: flight_board:local
+# uav-computer 是运行角色；新拆分配方待实施，可显式绑定已核验兼容镜像。
+ros_image: uav-computer:local
+ros_domain_id: 23
+namespace: /uav/demo/teleop
+containers:
+  px4: leuav-adrl-px4
+  ros: leuav-adrl-humble
+output: ../artifacts/adrl

@@ -1,0 +1,12 @@
+.git
+.venv
+artifacts
+**/__pycache__
+**/*.py[cod]
+.env
+.env.*
+resources.local.yaml
+profiles/*.local.yaml
+build
+install
+log

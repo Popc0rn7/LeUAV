@@ -1,0 +1,132 @@
+{
+  "repository": "ipads-uav-lesson",
+  "revision": "69159e2f95f337863fc9d9ddadd16a425350ee29",
+  "files": [
+    {
+      "source": "src/px4_sim_runtime.py",
+      "destination": "src/leuav/runtime/processes.py",
+      "source_sha256": "0948f84fa4d15649ea05b710e56dd212dd237c7a88e1050e1e8038d1fd909cc6",
+      "note": "仅提取实例身份、端口、互斥及清理；不迁入其他阶段编排"
+    },
+    {
+      "source": "stage2/airsim/sdk.py",
+      "destination": "src/leuav/simulation/airsim/sdk.py",
+      "source_sha256": "ad033d698698be6d412c8c8b51240733b5af53eef4a1b74e9db8cb91d9a563c8"
+    },
+    {
+      "source": "stage1/airsim/session.py",
+      "destination": "src/leuav/simulation/airsim/session.py",
+      "source_sha256": "cadf902ab3dfb2ec121021394fe27379295f0de6524b3c1a198823221487f30b"
+    },
+    {
+      "source": "stage1/airsim/prepare.py",
+      "destination": "src/leuav/simulation/airsim/adrl_compat.py",
+      "source_sha256": "185ab2bcc097965465d5d30d530b7b3c94831374fb3b381dceca68dd769ffa93",
+      "note": "保留兼容补丁，移除课程配置 CLI"
+    },
+    {
+      "source": "stage1/airsim/scene.py",
+      "destination": "src/leuav/adrl/scene.py",
+      "source_sha256": "8b86af6854e9b1d75fd1619820f9af923574b67b807c8338889c22cf86ddd2cd"
+    },
+    {
+      "source": "stage1/airsim/settings.json",
+      "destination": "src/leuav/adrl/settings.json",
+      "source_sha256": "9c8921570f75abe4b3eac88b1ec85697a33ea0507aa192a891e8a4888588598d"
+    },
+    {
+      "source": "src/px4_start.sh",
+      "destination": "src/leuav/flight/px4/px4_start.sh",
+      "source_sha256": "5f2282d646bf032ce5ed1ceff0a71548745a72de81ec0468614415b28aebec88"
+    },
+    {
+      "source": "stage1/bridge.py",
+      "destination": "src/leuav/flight/px4/agent.py",
+      "source_sha256": "9d08fac9644daeee551d8da9381416bff209564f81703a75e6d5c4632921d7b7"
+    },
+    {
+      "source": "stage1/keyboard.py",
+      "destination": "src/leuav/teleop/keyboard.py",
+      "source_sha256": "690d79b37a852d6769fa9ee1bcb14edf99579db26653d466b4ec7778f0e7931a"
+    },
+    {
+      "source": "tools/stage1/keyboard_answer.py",
+      "destination": "src/leuav/teleop/keyboard.py",
+      "source_sha256": "0a1cffd923ec2f34b2d3f0cf2673fdeb58c41796e4d6a0a5fc24026063d40b0d"
+    },
+    {
+      "source": "stage1/flight.py",
+      "destination": "src/leuav/teleop/flight.py",
+      "source_sha256": "0b9f07c44ced256b33d68bc4e178baceb344b31636cbad1ec84f37b29ae9fcf7"
+    },
+    {
+      "source": "tools/stage1/flight_answer.py",
+      "destination": "src/leuav/teleop/flight.py",
+      "source_sha256": "4d6a4b9a8d2a5298e200f7c8cc049951e0fb396bfcc38355dd9df4b1c740d499"
+    },
+    {
+      "source": "stage1/terminal.py",
+      "destination": "src/leuav/teleop/terminal.py",
+      "source_sha256": "dc3555029f8ff49d4a0d8d4c6f9cb4e2b2f872cddd5b2502a266c297b13fe39c"
+    },
+    {
+      "source": "tools/docker/Dockerfile",
+      "destination": "environments/humble/Dockerfile",
+      "source_sha256": "80f22854e80d40a67eb974a67bd15607b3d2a5d09b7c8da1a303143ee9a21397",
+      "note": "提取并适配，非逐字复制"
+    },
+    {
+      "source": "tests/stage1/test_keyboard_controller.py",
+      "destination": "tests/test_teleop_controller.py",
+      "source_sha256": "e99e8e768ddeaeb919ee6aff8c816ed402ad4de2d5fad41aaa0e73105c6c5050",
+      "note": "提取并适配，非逐字复制"
+    },
+    {
+      "source": "stage1/airsim/runtime.py",
+      "destination": "src/leuav/adrl/runtime.py",
+      "source_sha256": "935565e45a858572c4f2a69b7cef3117fc156ca2de1763e500a659105e3c85c5",
+      "note": "提取并适配，移除课程及排行榜依赖"
+    },
+    {
+      "source": "stage1/task.py",
+      "destination": "src/leuav/adrl/cli.py",
+      "source_sha256": "a30d16e3efef4930509f874d864d8ec5ef307c1e730dd866b4d3dd2ca10fce3c",
+      "note": "提取并适配，移除课程及排行榜依赖"
+    }
+  ],
+  "notes": [
+    "源码保持原仓库不变；迁入部分已改为具名包",
+    "第三方场景和镜像未复制；外部分发许可需另行核实"
+  ],
+  "migration_note": "初版移除课程身份和排行榜强依赖；仅原生赛务；reset/成绩上报/赛末自动降落与复位尚未迁入。",
+  "migrated_files": {
+    "src/leuav/__init__.py": "b2d9d044106759428b0cb4b185f14cb6711cb12bb340c1a731c032ac15a1d05b",
+    "src/leuav/adrl/__init__.py": "6e71fbc311ca1816a0a10ca0b3cbe667e16a7447e1a7437c658e18f9c02f96b3",
+    "src/leuav/adrl/cli.py": "d4108a58414d096284e555f5de0276be22299874a68b866dd0a2da57356a3b97",
+    "src/leuav/adrl/config.py": "ac84c6be15810cd4a3234159f79f264db3707091adab4d16b307d7d29db2e0c1",
+    "src/leuav/adrl/runtime.py": "fdee42ac41b06d590d4c64ba7d4c640d4eaed93a0fc57202802b1eac01326bad",
+    "src/leuav/adrl/scene.py": "8b86af6854e9b1d75fd1619820f9af923574b67b807c8338889c22cf86ddd2cd",
+    "src/leuav/adrl/settings.json": "9c8921570f75abe4b3eac88b1ec85697a33ea0507aa192a891e8a4888588598d",
+    "src/leuav/deployment/__init__.py": "711e5df7f4e47419265d3578accabfd2341b3578bd6fb7e19abfb4532631f1e4",
+    "src/leuav/deployment/hdc.py": "6ad44498f5445331ef82acff6e9e991011436d5528c2fba2cd1fced711f3a565",
+    "src/leuav/flight/__init__.py": "0d951c2ee7addc1bd90f7ae97bc4c7b0ca5d2821a7603bd03f4976af515e4193",
+    "src/leuav/flight/px4/__init__.py": "8fa97ad993e069afd7d1568d0eeb91d5ad43e62691b41e6b00ee012a5ec497f3",
+    "src/leuav/flight/px4/agent.py": "9d08fac9644daeee551d8da9381416bff209564f81703a75e6d5c4632921d7b7",
+    "src/leuav/flight/px4/px4_start.sh": "5f2282d646bf032ce5ed1ceff0a71548745a72de81ec0468614415b28aebec88",
+    "src/leuav/resources.py": "81ad975e731d570fafb24a9d708e985d3a60416a68cd6dba345fe2364a8c887a",
+    "src/leuav/runtime/__init__.py": "baf48f66a2be94f8dba10b2738792c91f8fab742209b472f8773ca24d37f9a25",
+    "src/leuav/runtime/processes.py": "cba4634c0a40333dd25fb4928f3266d68dd5f454975948320694f62444ab7a0a",
+    "src/leuav/simulation/__init__.py": "87b496020016fc0d77773b39554d97ba3677f4006298bd3794c34ad3d187f74d",
+    "src/leuav/simulation/airsim/__init__.py": "0380f65f05ebd242316be92112859e1f9929ca6cb20bbc00e5c34ae68605053f",
+    "src/leuav/simulation/airsim/adrl_compat.py": "43a64805df30fbf96905062273facedcc6d5343a7d635bc6ceea06b2d16be50e",
+    "src/leuav/simulation/airsim/sdk.py": "ad033d698698be6d412c8c8b51240733b5af53eef4a1b74e9db8cb91d9a563c8",
+    "src/leuav/simulation/airsim/session.py": "bb59236e8c7f60a2014f2e9124e8ae3dbd5da4b3f54f208e0b0ba713bb8b0fac",
+    "src/leuav/teleop/__init__.py": "b6f7185c2a75dede12357b8f2b998e6b0d2658ff4a39dc969e17a9773c54eade",
+    "src/leuav/teleop/bundle.py": "0e5142da34f2d64bce46c33b4d2d9b39833438bd81dc1350ad8efbf405244fea",
+    "src/leuav/teleop/flight.py": "710491c298f15be292e215408da9e6b36c355db58e6f4be835770e4a39720d1a",
+    "src/leuav/teleop/keyboard.py": "b8481db04ba782c7de60c5e9d8c9e16e35e9645d87640dae55e9d7b331a71044",
+    "src/leuav/teleop/launch.py": "8424c63a488e92574b8e233b638d4cfd7a547ea2531e9fcd69f2cb8a14a7627c",
+    "src/leuav/teleop/protocol.py": "7d4cfbf3cd76512f39968dfc51ba69fc711b5b864469ba4d9bb20ad53f33356d",
+    "src/leuav/teleop/terminal.py": "dc3555029f8ff49d4a0d8d4c6f9cb4e2b2f872cddd5b2502a266c297b13fe39c"
+  }
+}
